@@ -1,0 +1,15 @@
+@import "/src/variables";
+
+.custom-button {
+  width: 100%;
+  height: 45px;
+  background: $green;
+  color: white;
+  border-radius: 35px;
+  user-select: none;
+  &.inactive {
+    color: $white !important;
+    background: $dark-grey;
+    pointer-events: none;
+  }
+}
