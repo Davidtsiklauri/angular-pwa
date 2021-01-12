@@ -8,4 +8,4 @@ import { AppRoutingModule } from '../app-routing.module';
   imports: [CommonModule, BrowserModule, AppRoutingModule],
   exports: [BrowserModule, AppRoutingModule],
 })
-export class CoreModule {}
+export class CoreModule { }
