@@ -4,9 +4,8 @@ import {
   EmbeddedViewRef,
   Injectable,
   Injector,
-  ViewChild,
 } from '@angular/core';
-import { ModalComponent } from 'src/app/shared/components/modal/modal.component';
+import { ModalComponent } from '../components/modal/modal.component';
 
 @Injectable({ 'providedIn': 'root' })
 

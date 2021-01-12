@@ -3,11 +3,18 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { CoreModule } from './core/core.module';
+import { AppRoutingModule } from './app-routing.module';
+import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    CoreModule,
+    AppRoutingModule,
+    CommonModule,
+    // CoreModule,
+    BrowserModule, AppRoutingModule,
+    BrowserModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
     }),
@@ -15,4 +22,4 @@ import { CoreModule } from './core/core.module';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

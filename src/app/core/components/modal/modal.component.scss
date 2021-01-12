@@ -1,0 +1,84 @@
+ .title {
+   color: #757575;
+   font-weight: bold;
+ }
+
+ .transparent-bg {
+   background: #707070;
+   opacity: .4;
+   z-index: 2;
+ }
+
+ .modal {
+   text-align: left;
+   display: block;
+   z-index: 3;
+
+
+   .modal-dialog {
+     animation: bounceIn 1s;
+
+   }
+ }
+
+ .modal-content {
+   border: none;
+   border-radius: 2px;
+   box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21);
+ }
+
+ .modal-header {
+   border-bottom: 0;
+   padding-top: 15px;
+   padding-right: 26px;
+   padding-left: 26px;
+   padding-bottom: 0px;
+ }
+
+ .modal-title {
+   font-size: 27px;
+ }
+
+ .modal-body {
+   border-bottom: 0;
+   padding-top: 5px;
+   padding-right: 26px;
+   padding-left: 26px;
+   padding-bottom: 10px;
+   font-size: 15px;
+ }
+
+ .modal-footer {
+   border-top: 0;
+   padding-top: 0px;
+   padding-right: 26px;
+   padding-bottom: 26px;
+   padding-left: 26px;
+ }
+
+
+
+ .btn-primary:hover {
+   background-color: #2980B9;
+   box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+ }
+
+ @keyframes bounceIn {
+   0% {
+     opacity: 0;
+     transform: scale(.3);
+   }
+
+   50% {
+     opacity: 1;
+     transform: scale(1.05);
+   }
+
+   70% {
+     transform: scale(.9);
+   }
+
+   100% {
+     transform: scale(1);
+   }
+ }
