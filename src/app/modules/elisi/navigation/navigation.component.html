@@ -3,37 +3,49 @@
     <hr>
     <div class="menu">
         <ul class="menu-items">
-            <li class="menu-item active">
-                <fa-icon [icon]="faCalendar"></fa-icon>
-                <a>Weekly</a>
+            <li class="menu-item">
+                <a routerLink='weekly' routerLinkActive='active' class="p-0">
+                    <fa-icon [icon]="faCalendar"></fa-icon>
+                    Weekly
+                </a>
             </li>
             <li class="menu-item">
-                <fa-icon [icon]="faFolder"></fa-icon>
-                <a>Workspace Settings</a>
+                <a routerLink='settings' routerLinkActive='active' class="p-0">
+                    <fa-icon [icon]="faFolder"></fa-icon>
+                    Workspace Settings
+                </a>
             </li>
         </ul>
         <hr>
         <ul class="menu-items">
             <li class="menu-item">
-                <fa-icon [icon]="faTrophy"></fa-icon>
-                <a>Achievement</a>
+                <a routerLink='achievement' routerLinkActive='active' class="p-0">
+                    <fa-icon [icon]="faTrophy"></fa-icon>
+                    Achievement
+                </a>
             </li>
             <li class="menu-item">
-                <fa-icon [icon]="faBlog"></fa-icon>
-                <a>Blog</a>
+                <a routerLink='blog' routerLinkActive='active' class="p-0">
+                    <fa-icon [icon]="faBlog"></fa-icon>
+                    Blog
+                </a>
+
             </li>
             <li class="menu-item">
-                <fa-icon [icon]="faUser"></fa-icon>
-                <a>Account</a>
+                <a routerLink='account' routerLinkActive='active' class="p-0">
+                    <fa-icon [icon]="faUser"></fa-icon>
+                    Account
+                </a>
             </li>
             <li class="menu-item">
-                <fa-icon [icon]="faRocket"></fa-icon>
-                <a>Register and Sync Free</a>
+                <a class="p-0">
+                    <fa-icon [icon]="faRocket"></fa-icon>
+                    Register and Sync Free
+                </a>
             </li>
         </ul>
     </div>
 </div>
-
 
 
 

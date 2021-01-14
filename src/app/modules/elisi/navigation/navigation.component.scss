@@ -22,12 +22,10 @@
         margin-top: 7px;
         cursor: pointer;
 
-        &.active {
-          transition: .5 ease-in;
+        >.active {
+          transition: .5s ease-in;
 
-          a {
-            color: $green !important;
-          }
+          color: $green !important;
 
           fa-icon {
             color: $green !important;
@@ -36,11 +34,14 @@
 
         fa-icon {
           color: white;
+          padding-right: 8px;
+
         }
 
         a {
           color: white;
           padding-left: 10px;
+          text-decoration: none;
         }
       }
     }

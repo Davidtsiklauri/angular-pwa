@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { faBlog, faCalendar, faFolder, faRocket, faTrophy, faUser } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBlog, faCalendar,
+  faFolder, faRocket,
+  faTrophy, faUser
+} from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -15,9 +19,6 @@ export class NavigationComponent {
   faBlog = faBlog;
   faUser = faUser;
   faRocket = faRocket;
-
-
   constructor(
   ) { }
-
 }

@@ -1,6 +1,47 @@
+@import 'src/variables';
+
 .wrapper {
   .nav {
     min-width: 300px;
     border-right: 1px solid #708090;
+    position: relative;
+
+    .toggle {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid #708090;
+      z-index: 3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: $background;
+      cursor: pointer;
+      right: -5%;
+
+      fa-icon {
+        color: white;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.hidden {
+  .nav {
+    min-width: unset !important;
+    width: 27px !important;
+    // overflow: hidden;
+    animation: unset !important;
+    flex: unset !important;
+
+    app-navigation {
+      opacity: 0;
+    }
+
+    .toggle {
+      right: -61% !important;
+    }
   }
 }
