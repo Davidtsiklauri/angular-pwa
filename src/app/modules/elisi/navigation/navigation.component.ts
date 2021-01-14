@@ -1,25 +1,23 @@
-import { AfterViewInit, Component } from '@angular/core';
-import { ModalService } from 'src/app/core/services/modal.service';
+import { Component } from '@angular/core';
+import { faBlog, faCalendar, faFolder, faRocket, faTrophy, faUser } from '@fortawesome/free-solid-svg-icons';
+
+
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss'],
 })
-export class NavigationComponent implements AfterViewInit {
-  title: string = 'fafaafa';
+export class NavigationComponent {
+  faCalendar = faCalendar;
+  faFolder = faFolder;
+  faTrophy = faTrophy;
+  faBlog = faBlog;
+  faUser = faUser;
+  faRocket = faRocket;
+
 
   constructor(
-    private modalService: ModalService,
-    // @Inject('ModalData') private data: ModalData
   ) { }
-
-  ngAfterViewInit(): void {
-    // console.log(this.data);
-  }
-
-  closeModal() {
-    this.modalService.closeModal({ name: 'gia' });
-  }
 
 }

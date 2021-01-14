@@ -1,0 +1,49 @@
+@import 'src/variables';
+
+.navigation {
+  h4 {
+    color: $green;
+    margin-left: 7px;
+    padding-top: 10px;
+  }
+
+  .menu {
+    hr {
+      width: 90%;
+    }
+
+    .menu-items {
+      padding: 0px;
+      margin-left: 14px;
+
+      .menu-item {
+        list-style: none;
+        display: flex;
+        margin-top: 7px;
+        cursor: pointer;
+
+        &.active {
+          transition: .5 ease-in;
+
+          a {
+            color: $green !important;
+          }
+
+          fa-icon {
+            color: $green !important;
+          }
+        }
+
+        fa-icon {
+          color: white;
+        }
+
+        a {
+          color: white;
+          padding-left: 10px;
+        }
+      }
+    }
+  }
+
+}
