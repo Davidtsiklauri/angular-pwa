@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NavigationComponent } from 'src/app/modules/elisi/navigation/navigation.component';
+import { ModalService } from '../../services/modal.service';
 
 @Component({
   selector: 'app-button',
@@ -8,6 +10,13 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ButtonComponent implements OnInit {
   @Input() isInactive: boolean = false;
 
-  constructor() { }
+  constructor(
+    private modal: ModalService
+  ) { }
   ngOnInit(): void { }
+
+  openModal() {
+    const modal = this.modal.openModal(NavigationComponent, { title: 'test-modal' });
+    modal.subscribe(data => console.log(data));
+  }
 }

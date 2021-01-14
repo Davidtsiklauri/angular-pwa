@@ -1,15 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
+import { ModalService } from 'src/app/core/services/modal.service';
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.scss']
+  styleUrls: ['./navigation.component.scss'],
 })
-export class NavigationComponent implements OnInit {
+export class NavigationComponent implements AfterViewInit {
+  title: string = 'fafaafa';
 
-  constructor() { }
+  constructor(
+    private modalService: ModalService,
+    // @Inject('ModalData') private data: ModalData
+  ) { }
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
+    // console.log(this.data);
+  }
+
+  closeModal() {
+    this.modalService.closeModal({ name: 'gia' });
   }
 
 }

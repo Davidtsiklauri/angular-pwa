@@ -1,25 +1,34 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
+import { BrowserModule } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
-import { CommonModule } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
+import { AppComponent } from './app.component';
+import { CoreModule } from './core/core.module';
+
+
+
+export class ModalData {
+  data: any;
+}
+
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     AppRoutingModule,
     CommonModule,
-    // CoreModule,
+    CoreModule,
     BrowserModule, AppRoutingModule,
     BrowserModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
     }),
   ],
-  providers: [],
   bootstrap: [AppComponent],
+  providers: [
+    { provide: 'ModalData', useClass: ModalData }
+  ]
 })
 export class AppModule { }

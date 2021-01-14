@@ -23,6 +23,7 @@
             "outputPath": "dist/angular-pwa",
             "index": "src/index.html",
             "main": "src/main.ts",
+            "showCircularDependencies": false,
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,

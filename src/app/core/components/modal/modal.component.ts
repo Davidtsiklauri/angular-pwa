@@ -1,7 +1,9 @@
 import {
-  AfterViewInit, Component, ComponentFactoryResolver,
+  AfterViewInit, Component,
+  ComponentFactoryResolver,
   ViewChild, ViewContainerRef
 } from '@angular/core';
+
 
 @Component({
   selector: 'app-modal',
@@ -18,7 +20,7 @@ export class ModalComponent implements AfterViewInit {
   ) { }
 
   ngAfterViewInit(): void {
-    this.initModalComponent();
+    setTimeout((() => this.initModalComponent()), 0)
   }
 
   initModalComponent() {
@@ -26,5 +28,6 @@ export class ModalComponent implements AfterViewInit {
     const factory = this.resolver.resolveComponentFactory(this.component);
     this.container.createComponent(factory);
   }
+
 
 }

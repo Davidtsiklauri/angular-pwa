@@ -1,9 +1,7 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from '../app-routing.module';
-import { CheckboxComponent } from './components/checkbox/checkbox.component';
+import { NgModule } from '@angular/core';
 import { ButtonComponent } from './components/button/button.component';
+import { CheckboxComponent } from './components/checkbox/checkbox.component';
 import { ModalComponent } from './components/modal/modal.component';
 
 
@@ -13,9 +11,11 @@ const COMPONTENTS: any[] = [
 ];
 
 
+
 @NgModule({
   declarations: [COMPONTENTS],
   imports: [CommonModule],
-  exports: [COMPONTENTS],
+  exports: [COMPONTENTS]
+
 })
 export class CoreModule { }

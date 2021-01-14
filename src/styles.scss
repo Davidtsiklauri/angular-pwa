@@ -3,3 +3,16 @@
 * {
   font-family: "WorkSans Regular" !important;
 }
+
+.modal-header {
+  border-bottom: 0;
+  padding: 0px;
+
+  .custom-close {
+    font-size: 16px;
+  }
+
+  h5 {
+    font-size: 17px;
+  }
+}
