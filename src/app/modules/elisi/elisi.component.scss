@@ -22,6 +22,7 @@
       border: 1px solid #708090;
       z-index: 3;
       display: flex;
+      top: 40px;
       justify-content: center;
       align-items: center;
       background: $background;
@@ -50,6 +51,7 @@
 
     .toggle {
       right: -61% !important;
+      opacity: 1 !important;
     }
   }
 }

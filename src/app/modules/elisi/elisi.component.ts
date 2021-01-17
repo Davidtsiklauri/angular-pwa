@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faBars, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { Calendar } from './../../core/utilities/calendar';
 
 @Component({
   selector: 'app-elisi',
@@ -12,6 +13,9 @@ export class ElisiComponent implements OnInit {
   isMenuBarHidden: boolean = false;
 
   ngOnInit(): void {
+    const calendar = new Calendar();
+    calendar.showCalendar(3, 2021)
+    console.log(calendar.daysInMonth(1, 2021));
   }
 
 }

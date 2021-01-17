@@ -12,6 +12,7 @@ import { ElisiComponent } from './elisi.component';
 import { NavigationComponent } from './navigation/navigation.component';
 
 
+
 @NgModule({
   declarations: [
     ElisiComponent, NavigationComponent, WeeklyComponent,

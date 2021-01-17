@@ -1,0 +1,31 @@
+@import '/src/variables';
+
+.weeky-header {
+  .weekly-calendar {
+    border-bottom: 1px solid slategrey;
+    height: 55px;
+  }
+
+  .weekly-filter {
+    border-bottom: 1px solid slategrey;
+
+    button {
+      color: $green;
+      padding-right: 10px;
+      padding-left: 10px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      border: 1px solid $green;
+      margin-left: 10px;
+      border-radius: 18px;
+      font-size: 12px;
+      font-family: unset !important;
+      font-size: 13px;
+    }
+
+    .active {
+      background: $green;
+      color: white;
+    }
+  }
+}

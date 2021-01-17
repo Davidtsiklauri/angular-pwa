@@ -1,1 +1,27 @@
-<p>weekly works!</p>
+<div class="weeky-header">
+    <div class="weekly-calendar">
+
+    </div>
+    <div class="weekly-filter pt-2 pb-2">
+        <div class="d-flex justify-content-center">
+            <button (click)='addComponent(components.NotesComponent)'
+                [ngClass]='{"active": componenetMap.has("NotesComponent")}'>Notes</button>
+            <button (click)='addComponent(components.PlannerComponent)'
+                [ngClass]='{"active": componenetMap.has("PlannerComponent")}'>Planner</button>
+            <button (click)='addComponent(components.ListComponent)'
+                [ngClass]='{"active": componenetMap.has("ListComponent")}'>Lists</button>
+            <button (click)='addComponent(components.HabitComponent)'
+                [ngClass]='{"active": componenetMap.has("HabitComponent")}'>Habits</button>
+            <button (click)='addComponent(components.ExpensesComponent)'
+                [ngClass]='{"active": componenetMap.has("ExpensesComponent")}'>Expense</button>
+        </div>
+    </div>
+    <div class="weekly-body">
+        <div class="container-fluid">
+            <div class="row">
+                <template #compContainer class="col"></template>
+            </div>
+
+        </div>
+    </div>
+</div>

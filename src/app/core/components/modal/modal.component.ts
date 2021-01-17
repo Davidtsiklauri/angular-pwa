@@ -12,7 +12,7 @@ import {
 })
 export class ModalComponent implements AfterViewInit {
 
-  @ViewChild("modalContainer", { read: ViewContainerRef }) container: any;
+  @ViewChild("modalContainer", { read: ViewContainerRef }) container: ViewContainerRef | undefined;
   component: any;
 
   constructor(
@@ -24,9 +24,11 @@ export class ModalComponent implements AfterViewInit {
   }
 
   initModalComponent() {
-    this.container.clear();
-    const factory = this.resolver.resolveComponentFactory(this.component);
-    this.container.createComponent(factory);
+    if (this.container) {
+      this.container.clear();
+      const factory = this.resolver.resolveComponentFactory(this.component);
+      this.container.createComponent(factory);
+    }
   }
 
 
