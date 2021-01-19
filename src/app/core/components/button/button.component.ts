@@ -1,22 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { NavigationComponent } from 'src/app/modules/elisi/navigation/navigation.component';
-import { ModalService } from '../../services/modal.service';
+import { Component, HostBinding, Input } from '@angular/core';
 
 @Component({
   selector: 'app-button',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
 })
-export class ButtonComponent implements OnInit {
+export class ButtonComponent {
   @Input() isInactive: boolean = false;
-
-  constructor(
-    private modal: ModalService
-  ) { }
-  ngOnInit(): void { }
-
-  openModal() {
-    const modal = this.modal.openModal(NavigationComponent, { title: 'test-modal' });
-    modal.subscribe(data => console.log(data));
-  }
+  @HostBinding('style.pointer-events')
+  type = this.isInactive ? 'none' : 'unset';
 }

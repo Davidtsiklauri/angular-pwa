@@ -12,4 +12,9 @@ export class NotesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  openAddNoteModal() {
+    console.log('modal');
+
+  }
+
 }

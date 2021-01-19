@@ -1,1 +1,22 @@
-<h2 style="color: white;">Habit</h2>
+<div class="habit-container">
+    <div class="habit pl-3 pr-3">
+        <div class="d-flex align-items-center justify-content-between h100">
+            <p class="active">M</p>
+            <p>T</p>
+            <p>W</p>
+            <p>T</p>
+            <p>F</p>
+            <p>S</p>
+            <p>S</p>
+        </div>
+    </div>
+    <div class="habit-body">
+
+    </div>
+    <div class="habit-footer">
+        <app-button (click)='openModal()'>
+            <fa-icon [icon]='faPencilAlt' class="mr-2"></fa-icon>
+            Add habit
+        </app-button>
+    </div>
+</div>

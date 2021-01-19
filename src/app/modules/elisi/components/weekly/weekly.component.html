@@ -1,4 +1,4 @@
-<div class="weeky-header">
+<div class="weeky h100 w100">
     <div class="weekly-calendar">
 
     </div>
@@ -16,12 +16,11 @@
                 [ngClass]='{"active": componentMap.has("ExpensesComponent")}'>Expense</button>
         </div>
     </div>
-    <div class="weekly-body">
-        <div class="container-fluid">
-            <div class="row">
-                <template #compContainer class="col"></template>
+    <div class="weekly-body  w100">
+        <div class=" h100 w100">
+            <div class="row h100 w100  m-0">
+                <template #compContainer></template>
             </div>
-
         </div>
     </div>
 </div>

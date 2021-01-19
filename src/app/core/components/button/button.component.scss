@@ -2,7 +2,7 @@
 
 .custom-button {
   width: 100%;
-  height: 45px;
+  height: 33px;
   background: $green;
   color: white;
   border-radius: 35px;
@@ -11,13 +11,14 @@
   &.inactive {
     color: $white !important;
     background: $dark-grey;
-    pointer-events: none;
   }
 }
-
 
 button {
   width: 100%;
   height: 100%;
   display: block;
+  font-size: 15px;
+  color: white;
+
 }

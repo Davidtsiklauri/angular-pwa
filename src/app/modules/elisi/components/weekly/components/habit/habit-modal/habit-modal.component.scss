@@ -1,0 +1,50 @@
+@import '/src/variables';
+
+.modal-header {
+  h5 {
+    color: white;
+  }
+
+}
+
+.modal-body {
+  input {
+    background: $dark-background;
+    border: unset;
+    padding: unset;
+    color: $white;
+
+    &::placeholder {
+      color: $dark-grey;
+    }
+  }
+
+  label {
+    color: $white;
+  }
+
+  select {
+    appearance: none;
+    border: none;
+    background: $dark-background;
+    color: white;
+  }
+
+  .custom-item {
+    input[type="checkbox"] {
+      display: none;
+    }
+
+    label {
+      border: 1px solid $dark-grey;
+      border-radius: 4px;
+      padding: 4px 11px;
+      cursor: pointer;
+      font-weight: bolder;
+    }
+
+    input[type="checkbox"]:checked+label {
+      background: $yellow;
+    }
+  }
+}

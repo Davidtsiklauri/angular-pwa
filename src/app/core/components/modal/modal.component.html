@@ -1,6 +1,6 @@
 <div class="modal transparent-bg"></div>
-<div class="modal in">
-    <div class="modal-dialog">
+<div class="modal in ">
+    <div class="modal-dialog" [ngClass]='{"modal-lg": width === "lg", "modal-sm": width === "sm" }'>
         <div class="modal-content">
             <div class="modal-body">
                 <template #modalContainer></template>

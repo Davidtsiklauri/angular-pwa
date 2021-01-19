@@ -1,9 +1,14 @@
 @import '/src/variables';
 
-.weeky-header {
+.weeky {
   .weekly-calendar {
     border-bottom: 1px solid slategrey;
     height: 55px;
+  }
+
+  .weekly-body {
+    height: calc(100% - 103px);
+    background: $dark-background;
   }
 
   .weekly-filter {

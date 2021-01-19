@@ -7,16 +7,17 @@ import { ModalComponent } from './components/modal/modal.component';
 
 
 const COMPONTENTS: any[] = [
-  ButtonComponent, CheckboxComponent,
+  ButtonComponent,
+  CheckboxComponent,
   ModalComponent
 ];
 
 
 
 @NgModule({
-  declarations: [COMPONTENTS],
+  declarations: [...COMPONTENTS],
   imports: [CommonModule, FontAwesomeModule],
-  exports: [COMPONTENTS, FontAwesomeModule]
+  exports: [...COMPONTENTS, FontAwesomeModule]
 
 })
 export class CoreModule { }

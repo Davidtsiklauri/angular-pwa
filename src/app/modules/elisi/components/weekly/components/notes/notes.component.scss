@@ -1,0 +1,28 @@
+@import '/src/variables';
+
+.notes {
+  width: 100%;
+  height: 100%;
+
+  h2 {
+    color: $white;
+  }
+
+  span {
+    color: $dark-grey;
+  }
+
+  .block-header {
+    height: 60%;
+  }
+
+  .block-body {
+    height: 30%;
+  }
+
+  .block-footer {
+    height: 10%;
+    max-width: 200px;
+    margin: 0px auto;
+  }
+}

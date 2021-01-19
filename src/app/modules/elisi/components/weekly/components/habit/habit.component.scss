@@ -1,0 +1,41 @@
+@import '/src/variables';
+
+.habit-container {
+  width: 100%;
+  height: 100%;
+
+  .habit {
+    height: 45px;
+    border-bottom: 1px solid $slate-grey;
+    background: $background;
+
+    [class^='d-flex'] {
+      max-width: 400px;
+      margin-left: auto;
+
+      p {
+        color: white;
+        margin: 0;
+        padding: 0 5px;
+
+      }
+
+      .active {
+        border-radius: 50%;
+        background: $green;
+
+      }
+    }
+
+  }
+
+  .habit-body {
+    height: calc(90% - 45px);
+  }
+
+  .habit-footer {
+    height: 10%;
+    width: 186px;
+    margin: 0px auto;
+  }
+}

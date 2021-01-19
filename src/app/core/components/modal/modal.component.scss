@@ -1,3 +1,5 @@
+@import 'src/variables';
+
 .title {
   color: #757575;
   font-weight: bold;
@@ -27,7 +29,7 @@
 
 .modal-content {
   border: none;
-  border-radius: 2px;
+  border-radius: 5px;
   box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21);
 }
 
@@ -42,7 +44,10 @@
   padding-right: 26px;
   padding-left: 26px;
   padding-bottom: 10px;
+  border-radius: 5px;
+  background: $dark-background;
   font-size: 15px;
+  border: 1px solid $slate-grey;
 }
 
 

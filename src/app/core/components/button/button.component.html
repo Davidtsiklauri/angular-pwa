@@ -1,3 +1,5 @@
-<div class="custom-button" [ngClass]="{ inactive: isInactive }" (click)='openModal()'>
-  <button>Add Expense</button>
+<div class="custom-button" [ngClass]="{'inactive': isInactive }">
+  <button>
+    <ng-content></ng-content>
+  </button>
 </div>

@@ -11,6 +11,13 @@ import { AsyncSubject, Subject, throwError } from 'rxjs';
 import { ModalData } from 'src/app/app.module';
 import { ModalComponent } from '../components/modal/modal.component';
 
+export interface IModalData<T> {
+  modalConfig?: {
+    width: 'lg' | 'sm'
+  },
+  data?: T
+}
+
 @Injectable({ 'providedIn': 'root' })
 
 export class ModalService {
@@ -25,7 +32,7 @@ export class ModalService {
     @Inject('ModalData') private modalData: ModalData,
   ) { }
 
-  openModal(cmp: any, modalData: any): Subject<any> {
+  openModal(cmp: any, modalData: IModalData<any> | null = null): Subject<any> {
     if (!cmp) {
       throwError('component is not provided`');
     }

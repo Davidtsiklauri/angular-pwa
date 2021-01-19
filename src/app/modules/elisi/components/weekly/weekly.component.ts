@@ -39,6 +39,7 @@ export class WeeklyComponent implements OnInit {
     const compRef: ComponentRef<any> = this.container.createComponent(factory);
     const element: HTMLElement = compRef.location.nativeElement;
     element.classList.add('col')
+    element.classList.add('p-0')
     this.componentMap.set(`${comp.name}`, compRef);
   }
 
