@@ -4,7 +4,6 @@ import { AccountComponent } from './components/account/account.component';
 import { AchievementComponent } from './components/achievement/achievement.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { WeeklyComponent } from './components/weekly/weekly.component';
-import { WorkspaceSettingsComponent } from './components/workspace-settings/workspace-settings.component';
 import { ElisiComponent } from './elisi.component';
 
 const routes: Routes = [{
@@ -13,7 +12,6 @@ const routes: Routes = [{
     { path: 'weekly', component: WeeklyComponent },
     { path: 'account', component: AccountComponent },
     { path: 'achievement', component: AchievementComponent },
-    { path: 'settings', component: WorkspaceSettingsComponent },
     { path: 'blog', component: BlogComponent },
   ]
 },

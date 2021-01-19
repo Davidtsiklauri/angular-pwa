@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WorkspaceSettingsComponent } from './workspace-settings.component';
+import { WorkSpaceModalComponent } from './work-space-modal.component';
 
-describe('WorkspaceSettingsComponent', () => {
-  let component: WorkspaceSettingsComponent;
-  let fixture: ComponentFixture<WorkspaceSettingsComponent>;
+describe('WorkSpaceModalComponent', () => {
+  let component: WorkSpaceModalComponent;
+  let fixture: ComponentFixture<WorkSpaceModalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WorkspaceSettingsComponent ]
+      declarations: [ WorkSpaceModalComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WorkspaceSettingsComponent);
+    fixture = TestBed.createComponent(WorkSpaceModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
