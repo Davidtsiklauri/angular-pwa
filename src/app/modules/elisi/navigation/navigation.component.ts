@@ -4,6 +4,8 @@ import {
   faFolder, faRocket,
   faTrophy, faUser
 } from '@fortawesome/free-solid-svg-icons';
+import { ModalService } from './../../../core/services/modal.service';
+import { WorkSpaceModalComponent } from './components/work-space-modal/work-space-modal.component';
 
 
 
@@ -20,5 +22,11 @@ export class NavigationComponent {
   faUser = faUser;
   faRocket = faRocket;
   constructor(
+    private modalService: ModalService
   ) { }
+
+
+  openWorkSettingsModal() {
+    this.modalService.openModal(WorkSpaceModalComponent, { modalConfig: { width: 'lg' } });
+  }
 }

@@ -1,1 +1,22 @@
-<p>work-space-modal works!</p>
+<div class="work">
+    <div class="modal-header">
+        <h5 class="modal-title">
+            Add
+        </h5>
+        <button type="button" class="custom-close">
+            ×
+        </button>
+    </div>
+    <div class="modal-body d-flex justify-content-center flex-column h100">
+        <div class="image">
+            <img src="assets/icons/no-icon.svg" alt="icon">
+        </div>
+        <div class="work-space text-center">
+            <h2>WorkSpaces</h2>
+            <p>Use workspace to seperate aspects of life</p>
+        </div>
+        <div class="modal-content-footer">
+            <app-button (click)='addWorkSpace()'>Add Workspace</app-button>
+        </div>
+    </div>
+</div>

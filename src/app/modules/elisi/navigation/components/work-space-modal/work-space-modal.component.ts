@@ -12,4 +12,9 @@ export class WorkSpaceModalComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  addWorkSpace() {
+    console.log();
+
+  }
+
 }

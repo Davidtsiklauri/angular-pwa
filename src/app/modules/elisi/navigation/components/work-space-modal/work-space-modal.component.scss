@@ -1,0 +1,33 @@
+@import 'src/variables';
+
+
+.work {
+  text-align: center;
+  height: 80vh;
+
+  img {
+    max-height: 200px;
+    height: 100%;
+  }
+
+  .image {
+    height: 20%;
+  }
+
+  .work-space {
+    height: 60%;
+    padding-top: 40px
+  }
+
+  .modal-content-footer {
+    width: 180px;
+    margin: 0px auto;
+  }
+
+  h2,
+  p {
+    color: $white;
+  }
+
+  ;
+}
