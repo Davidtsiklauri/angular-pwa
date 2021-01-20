@@ -8,27 +8,12 @@
 }
 
 .modal-body {
-  input {
-    background: $dark-background;
-    border: unset;
-    padding: unset;
-    color: $white;
-
-    &::placeholder {
-      color: $dark-grey;
-    }
-  }
 
   label {
     color: $white;
   }
 
-  select {
-    appearance: none;
-    border: none;
-    background: $dark-background;
-    color: white;
-  }
+
 
   .custom-item {
     input[type="radio"] {
@@ -55,10 +40,6 @@
     }
   }
 
-  input {
-    height: 30px;
-    font-size: 25px;
-  }
 }
 
 .blue {
@@ -96,4 +77,13 @@
 .button-center {
   width: 90%;
   margin-top: 3rem;
+}
+
+span {
+  color: $dark-grey;
+  font-size: 12px;
+  margin-top: 3rem;
+  display: block;
+  text-align: center;
+
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalService } from './../../../../../core/services/modal.service';
 
 @Component({
   selector: 'app-add-work-space-modal',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddWorkSpaceModalComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public modalService: ModalService
+  ) { }
 
   ngOnInit(): void {
   }

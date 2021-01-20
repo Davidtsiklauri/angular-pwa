@@ -27,3 +27,37 @@ section {
 .h100 {
   height: 100%;
 }
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px -16px;
+
+  h5 {
+    font-size: 20px;
+  }
+
+  .custom-close {
+    color: white;
+  }
+}
+
+input[type="text"] {
+  background: $dark-background;
+  border: unset;
+  padding: unset;
+  color: $white;
+  height: 25px;
+  font-size: 20px;
+
+  &::placeholder {
+    color: $dark-grey;
+  }
+}
+
+select {
+  appearance: none;
+  border: none;
+  background: $dark-background;
+  color: white;
+}

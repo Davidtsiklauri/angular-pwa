@@ -8,16 +8,7 @@
 }
 
 .modal-body {
-  input {
-    background: $dark-background;
-    border: unset;
-    padding: unset;
-    color: $white;
 
-    &::placeholder {
-      color: $dark-grey;
-    }
-  }
 
   label {
     color: $white;

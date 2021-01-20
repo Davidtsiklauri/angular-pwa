@@ -9,8 +9,10 @@ $toggle-active-color: $white;
 $toggle-inactive-color: $background;
 
 .content {
+  width: 49px;
   position: relative;
   display: inline-block;
+
   & .is-flex {
     display: flex;
     flex-direction: row;
@@ -63,7 +65,7 @@ $toggle-inactive-color: $background;
   cursor: pointer;
   border: 1px solid white;
 
-  & + .toggle {
+  &+.toggle {
     margin-left: 0.75rem;
   }
 
@@ -86,7 +88,7 @@ $toggle-inactive-color: $background;
       box-shadow: 0px 1px 2px rgba($input-shadow, 0.1);
     }
 
-    .toggle-input:indeterminate + &,
+    .toggle-input:indeterminate+&,
     &.is-indeterminate {
       background-color: $primary-color;
 
@@ -96,10 +98,10 @@ $toggle-inactive-color: $background;
       }
     }
 
-    .toggle-input:checked + &,
+    .toggle-input:checked+&,
     &.is-active {
       background-color: $primary-color;
-      border: unset !important;
+      border: 1px solid transparent !important;
 
       .toggle-inner {
         margin-left: 24px;
@@ -107,7 +109,7 @@ $toggle-inactive-color: $background;
       }
     }
 
-    .toggle-input:disabled + &,
+    .toggle-input:disabled+&,
     &.is-disabled {
       pointer-events: none;
       background-color: rgba($toggle-inactive-color, 0.8);
@@ -117,7 +119,7 @@ $toggle-inactive-color: $background;
       }
     }
 
-    .toggle-input:disabled:checked + &,
+    .toggle-input:disabled:checked+&,
     &.is-active.is-disabled {
       pointer-events: none;
       background-color: rgba($primary-color, 0.6);
@@ -148,7 +150,7 @@ $toggle-inactive-color: $background;
       background-color: $toggle-active-color;
     }
 
-    .toggle-input:checked + &,
+    .toggle-input:checked+&,
     &.is-active {
       background-color: $primary-color;
 
@@ -156,7 +158,8 @@ $toggle-inactive-color: $background;
         background-color: $white;
       }
     }
-    .toggle-input:disabled + &,
+
+    .toggle-input:disabled+&,
     &.is-disabled {
       pointer-events: none;
       background-color: rgba($toggle-inactive-color, 0.8);
@@ -166,7 +169,7 @@ $toggle-inactive-color: $background;
       }
     }
 
-    .toggle-input:disabled:checked + &,
+    .toggle-input:disabled:checked+&,
     &.is-active.is-disabled {
       pointer-events: none;
       background-color: rgba($primary-color, 0.6);
@@ -212,7 +215,7 @@ $toggle-inactive-color: $background;
       }
     }
 
-    .toggle-input:checked + &,
+    .toggle-input:checked+&,
     &.is-active {
       background-color: $primary-color;
 
@@ -221,7 +224,7 @@ $toggle-inactive-color: $background;
       }
     }
 
-    .toggle-input:disabled + &,
+    .toggle-input:disabled+&,
     &.is-disabled {
       pointer-events: none;
       background-color: rgba($toggle-inactive-color, 0.8);
@@ -231,7 +234,7 @@ $toggle-inactive-color: $background;
       }
     }
 
-    .toggle-input:disabled:checked + &,
+    .toggle-input:disabled:checked+&,
     &.is-active.is-disabled {
       pointer-events: none;
       background-color: rgba($primary-color, 0.6);
