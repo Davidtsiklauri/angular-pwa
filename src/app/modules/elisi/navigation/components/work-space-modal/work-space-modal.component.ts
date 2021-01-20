@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AddWorkSpaceModalComponent } from '../add-work-space-modal/add-work-space-modal.component';
+import { ModalService } from './../../../../../core/services/modal.service';
 
 @Component({
   selector: 'app-work-space-modal',
@@ -7,14 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WorkSpaceModalComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private modalService: ModalService
+  ) { }
 
   ngOnInit(): void {
   }
 
   addWorkSpace() {
-    console.log();
-
+    this.modalService.closeModal();
+    this.modalService.openModal(AddWorkSpaceModalComponent, { modalConfig: { width: 'lg' } })
   }
 
 }

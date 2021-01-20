@@ -16,3 +16,21 @@
     font-size: 17px;
   }
 }
+
+.custom-checkbox {
+  input[type="checkbox"]:not(:checked) {
+    &+label {
+      &::after {
+        background: $dark-background;
+        border: 1px solid $dark-grey;
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+.button-center {
+  height: 10%;
+  width: 186px;
+  margin: 0px auto;
+}

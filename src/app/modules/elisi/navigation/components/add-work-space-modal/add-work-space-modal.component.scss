@@ -1,0 +1,99 @@
+@import '/src/variables';
+
+.modal-header {
+  h5 {
+    color: white;
+  }
+
+}
+
+.modal-body {
+  input {
+    background: $dark-background;
+    border: unset;
+    padding: unset;
+    color: $white;
+
+    &::placeholder {
+      color: $dark-grey;
+    }
+  }
+
+  label {
+    color: $white;
+  }
+
+  select {
+    appearance: none;
+    border: none;
+    background: $dark-background;
+    color: white;
+  }
+
+  .custom-item {
+    input[type="radio"] {
+      display: none;
+    }
+
+    label {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      cursor: pointer;
+      position: relative;
+    }
+
+    input[type="radio"]:checked+label {
+      &::after {
+        content: "✓";
+        position: absolute;
+        z-index: 5;
+        left: 11px;
+        top: 4px;
+        font-size: 18px;
+      }
+    }
+  }
+
+  input {
+    height: 30px;
+    font-size: 25px;
+  }
+}
+
+.blue {
+  background: rgb(105, 161, 236);
+}
+
+.green {
+  background: rgb(93, 190, 204);
+}
+
+.dark-yellow {
+  background: rgb(241, 157, 71);
+
+}
+
+.orange {
+  background: rgb(218, 115, 87);
+}
+
+.purple-blue {
+  background: rgb(93, 119, 231);
+
+}
+
+.purple {
+  background: rgb(142, 107, 224);
+
+}
+
+.yellow {
+  background: rgb(233, 190, 76);
+
+}
+
+.button-center {
+  width: 90%;
+  margin-top: 3rem;
+}

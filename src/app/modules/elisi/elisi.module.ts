@@ -11,6 +11,7 @@ import { NotesComponent } from './components/weekly/components/notes/notes.compo
 import { WeeklyComponent } from './components/weekly/weekly.component';
 import { ElisiRoutingModule } from './elisi-routing.module';
 import { ElisiComponent } from './elisi.component';
+import { AddWorkSpaceModalComponent } from './navigation/components/add-work-space-modal/add-work-space-modal.component';
 import { WorkSpaceModalComponent } from './navigation/components/work-space-modal/work-space-modal.component';
 import { NavigationComponent } from './navigation/navigation.component';
 
@@ -27,7 +28,8 @@ import { NavigationComponent } from './navigation/navigation.component';
     NotesComponent,
     HabitComponent,
     HabitModalComponent,
-    WorkSpaceModalComponent
+    WorkSpaceModalComponent,
+    AddWorkSpaceModalComponent
   ],
   imports: [
     CommonModule,

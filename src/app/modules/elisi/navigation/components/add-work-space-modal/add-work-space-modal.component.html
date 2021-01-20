@@ -1,0 +1,83 @@
+<div class="habit">
+    <div class="modal-header">
+        <h5 class="modal-title">
+            Add
+        </h5>
+        <button type="button" class="custom-close">
+            ×
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <input type="text" placeholder="habit name" class="w100" autofocus>
+        </div>
+        <label for="">Tag Color</label>
+        <div class="form-group d-flex justify-content-between mt-2">
+            <div class="custom-item">
+                <input type="radio" id="m" name='tag-color'>
+                <label for="m" class="blue"></label>
+            </div>
+            <div class="custom-item">
+                <input type="radio" id="t" name='tag-color'>
+                <label for="t" class="green"></label>
+            </div>
+            <div class="custom-item">
+                <input type="radio" id="w" name='tag-color'>
+                <label for="w" class="dark-yellow"></label>
+            </div>
+            <div class="custom-item">
+                <input type="radio" id="t" name='tag-color'>
+                <label for="t" class="orange"></label>
+            </div>
+            <div class="custom-item">
+                <input type="radio" id="f" name='tag-color'>
+                <label for="f" class="purple-blue"></label>
+            </div>
+            <div class="custom-item">
+                <input type="radio" id="s" name='tag-color'>
+                <label for="s" class="purple"></label>
+            </div>
+            <div class="custom-item">
+                <input type="radio" id="s" name='tag-color'>
+                <label for="s" class="yellow"></label>
+            </div>
+        </div>
+        <label for="">toggle module visibility</label>
+        <div class="module-visibilty">
+            <div class="custom-control custom-checkbox d-block">
+                <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
+                <label class="custom-control-label" for="customCheck">Notes</label>
+            </div>
+            <div class="custom-control custom-checkbox d-block">
+                <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
+                <label class="custom-control-label" for="customCheck">Planner</label>
+            </div>
+            <div class="custom-control custom-checkbox d-block">
+                <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
+                <label class="custom-control-label" for="customCheck">Habits</label>
+            </div>
+            <div class="custom-control custom-checkbox  d-block">
+                <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
+                <label class="custom-control-label" for="customCheck">Lists</label>
+            </div>
+            <div class="custom-control custom-checkbox d-block">
+                <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
+                <label class="custom-control-label" for="customCheck">Diary</label>
+            </div>
+            <div class="custom-control custom-checkbox d-block">
+                <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
+                <label class="custom-control-label" for="customCheck">Expense</label>
+            </div>
+        </div>
+
+
+        <div class="form-group button-center">
+            <app-button>Save</app-button>
+        </div>
+        <div class="form-group">
+            <span>Tip: hiding a module will make it disappear from the navigation bar.
+                Existing data won't be deleted
+            </span>
+        </div>
+    </div>
+</div>
