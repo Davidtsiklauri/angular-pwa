@@ -14,8 +14,7 @@ export class ElisiComponent implements OnInit {
 
   ngOnInit(): void {
     const calendar = new Calendar();
-    calendar.showCalendar(3, 2021)
-    console.log(calendar.daysInMonth(1, 2021));
+    console.log(calendar.getFirstDayOfMonth(2000,4));
   }
 
 }

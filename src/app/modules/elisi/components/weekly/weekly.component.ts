@@ -27,6 +27,7 @@ export class WeeklyComponent implements OnInit {
   addComponent(comp: any): void {
     if (!this.container) return;
     const factory = this.resolver.resolveComponentFactory(comp);
+    
     // Remove component, on same component toggle
     if (this.componentMap.has(comp.name)) {
       const index = this.container
@@ -35,12 +36,12 @@ export class WeeklyComponent implements OnInit {
       this.componentMap.delete(comp.name);
       return;
     }
-
+    
     const compRef: ComponentRef<any> = this.container.createComponent(factory);
     const element: HTMLElement = compRef.location.nativeElement;
-    element.classList.add('col')
-    element.classList.add('p-0')
+    element.classList.add('col', 'p-0')
     this.componentMap.set(`${comp.name}`, compRef);
+    
   }
 
 }

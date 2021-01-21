@@ -1,29 +1,33 @@
 export class Calendar {
 
-    today = new Date();
-    currentMonth = this.today.getMonth();
-    currentYear = this.today.getFullYear();
-    months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    monthDays: number[] = [];
+    private months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    private days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-    next() {
-        this.currentYear = (this.currentMonth === 11) ? this.currentYear + 1 : this.currentYear;
-        this.currentMonth = (this.currentMonth + 1) % 12;
+    public getNextMonth(): number {
+        const currentMonth = new Date().getMonth();
+        return (currentMonth + 1) % 12;
     }
 
-    previous() {
-        this.currentYear = (this.currentMonth === 0) ? this.currentYear - 1 : this.currentYear;
-        this.currentMonth = (this.currentMonth === 0) ? 11 : this.currentMonth - 1;
+    public getNextYear(): number {
+        const currentYear = new Date().getFullYear(),
+              currentMonth = this.getNextMonth();
+        return (currentMonth === 11) ? currentYear + 1 : currentYear;;
     }
 
-    jump(currentYear: string, currentMonth: string) {
-        this.currentYear = parseInt(currentYear);
-        this.currentMonth = parseInt(currentMonth);
+    public daysInMonth(month: number, year: number): number {
+        return 32 - new Date(year, month, 32).getDate();
     }
 
-    showCalendar(month: number, year: number) {
-        let firstDay = (new Date(year, month)).getDay();
+    public getFirstDayOfMonth(year?: number, month?: number): string {
+        const now = new Date();
+        const dayInNum: number = new Date(year || now.getFullYear(), month || now.getMonth()).getDay();
+        return this.days[dayInNum];
+    }
 
+    public showCalendar(month: number, year: number) {
+        let firstDay = (new Date(year, month)).getDay(),
+            today = new Date(),
+            monthDays = [];
         // creating all cells
         let date = 1;
         for (let i = 0; i < 6; i++) {
@@ -32,17 +36,17 @@ export class Calendar {
             //creating individual cells, filing them up with data.
             for (let j = 0; j < 7; j++) {
                 if (i === 0 && j < firstDay) {
-                    this.monthDays.push(0);
+                    monthDays.push(0);
                 }
                 else if (date > this.daysInMonth(month, year)) {
                     break;
                 }
 
                 else {
-                    this.monthDays.push(date);
-                    if (date === this.today.getDate() &&
-                        year === this.today.getFullYear() &&
-                        month === this.today.getMonth()) {
+                    monthDays.push(date);
+                    if (date === today.getDate() &&
+                        year === today.getFullYear() &&
+                        month === today.getMonth()) {
 
                     } // color today's date
 
@@ -52,12 +56,10 @@ export class Calendar {
             }
 
         }
-        console.log(this.monthDays);
+        return monthDays;
     }
 
 
-    daysInMonth(month: number, year: number): number {
-        return 32 - new Date(year, month, 32).getDate();
-    }
+   
 
 }
