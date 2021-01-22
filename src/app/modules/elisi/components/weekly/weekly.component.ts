@@ -2,46 +2,53 @@ import {
   Component,
   ComponentFactoryResolver,
   ComponentRef,
-  OnInit, ViewChild, ViewContainerRef
+  OnInit,
+  ViewChild,
+  ViewContainerRef,
 } from '@angular/core';
+import {
+  faChevronLeft,
+  faChevronRight,
+  faKeyboard,
+} from '@fortawesome/free-solid-svg-icons';
 import * as components from './dynamic.components';
-
 
 @Component({
   selector: 'app-weekly',
   templateUrl: './weekly.component.html',
-  styleUrls: ['./weekly.component.scss']
+  styleUrls: ['./weekly.component.scss'],
 })
 export class WeeklyComponent implements OnInit {
-
-  @ViewChild("compContainer", { read: ViewContainerRef }) container: ViewContainerRef | undefined;
+  @ViewChild('compContainer', { read: ViewContainerRef }) container:
+    | ViewContainerRef
+    | undefined;
   components = components;
   componentMap = new Map<string, ComponentRef<any>>();
+  faKeyboard = faKeyboard;
+  faChevronLeft = faChevronLeft;
+  faChevronRight = faChevronRight;
 
-  constructor(
-    private resolver: ComponentFactoryResolver
-  ) { }
+  constructor(private resolver: ComponentFactoryResolver) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   addComponent(comp: any): void {
     if (!this.container) return;
     const factory = this.resolver.resolveComponentFactory(comp);
-    
+
     // Remove component, on same component toggle
     if (this.componentMap.has(comp.name)) {
-      const index = this.container
-        .indexOf(this.componentMap.get(comp.name)?.hostView as any);
+      const index = this.container.indexOf(
+        this.componentMap.get(comp.name)?.hostView as any
+      );
       this.container.remove(index);
       this.componentMap.delete(comp.name);
       return;
     }
-    
+
     const compRef: ComponentRef<any> = this.container.createComponent(factory);
     const element: HTMLElement = compRef.location.nativeElement;
-    element.classList.add('col', 'p-0')
+    element.classList.add('col', 'p-0');
     this.componentMap.set(`${comp.name}`, compRef);
-    
   }
-
 }

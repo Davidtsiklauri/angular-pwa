@@ -41,6 +41,9 @@ section {
     color: white;
   }
 }
+.cursor-pointer {
+  cursor: pointer;
+}
 
 input[type="text"] {
   background: $dark-background;

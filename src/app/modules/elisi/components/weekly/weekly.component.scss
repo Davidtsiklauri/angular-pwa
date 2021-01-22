@@ -1,4 +1,4 @@
-@import '/src/variables';
+@import "/src/variables";
 
 .weeky {
   .weekly-calendar {
@@ -11,6 +11,49 @@
     background: $dark-background;
   }
 
+  .weekly-calendar {
+    padding: 2px 15px;
+    h2,
+    p,
+    span,
+    h4,
+    fa-icon {
+      color: white;
+      margin: 0;
+    }
+    h2 {
+      font-size: 40px;
+    }
+    h4 {
+      font-size: 17px;
+      padding-bottom: 3px;
+      color: $yellow;
+    }
+    .navigation {
+      fa-icon {
+        font-size: 17px;
+      }
+    }
+    p {
+      font-size: 11px;
+      line-height: unset !important;
+      padding-bottom: 3.4px;
+    }
+    .left {
+      line-height: 1.4;
+      padding-left: 6px;
+    }
+    span {
+      font-size: 15px;
+      color: $dark-grey;
+    }
+    fa-icon {
+      cursor: pointer;
+    }
+    .right-side > fa-icon {
+      color: $green;
+    }
+  }
   .weekly-filter {
     border-bottom: 1px solid slategrey;
 
