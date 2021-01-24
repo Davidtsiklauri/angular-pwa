@@ -10,8 +10,13 @@ export class Calendar {
 
     public getNextYear(): number {
         const currentYear = new Date().getFullYear(),
-              currentMonth = this.getNextMonth();
+            currentMonth = this.getNextMonth();
         return (currentMonth === 11) ? currentYear + 1 : currentYear;;
+    }
+
+    public getMonthNumber(): number {
+        const currentMonth = new Date().getMonth();
+        return currentMonth;
     }
 
     public daysInMonth(month: number, year: number): number {
@@ -59,7 +64,20 @@ export class Calendar {
         return monthDays;
     }
 
+    getWeekNumber(year: Date) {
+        const date: any = new Date(year);
+        date.setHours(0, 0, 0, 0);
+        date.setDate(date.getDate() + 4 - (date.getDay() || 7));
+        const yearStart: any = new Date(date.getFullYear(), 0, 1);
+        const weekNo = Math.ceil((((date - yearStart) / 86400000) + 1) / 7)
+        return weekNo;
+    }
 
-   
+    weeksInYear(year: number) {
+        const d = new Date(year, 11, 31);
+        const week = this.getWeekNumber(d);
+        return week == 1 ? 52 : week;
+    }
+
 
 }

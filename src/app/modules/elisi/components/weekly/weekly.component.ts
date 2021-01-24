@@ -4,13 +4,14 @@ import {
   ComponentRef,
   OnInit,
   ViewChild,
-  ViewContainerRef,
+  ViewContainerRef
 } from '@angular/core';
 import {
   faChevronLeft,
   faChevronRight,
-  faKeyboard,
+  faKeyboard
 } from '@fortawesome/free-solid-svg-icons';
+import { Calendar } from './../../../../core/utilities/calendar';
 import * as components from './dynamic.components';
 
 @Component({
@@ -19,18 +20,22 @@ import * as components from './dynamic.components';
   styleUrls: ['./weekly.component.scss'],
 })
 export class WeeklyComponent implements OnInit {
-  @ViewChild('compContainer', { read: ViewContainerRef }) container:
-    | ViewContainerRef
-    | undefined;
+
+  @ViewChild('compContainer', { read: ViewContainerRef }) container: ViewContainerRef | undefined;
   components = components;
   componentMap = new Map<string, ComponentRef<any>>();
   faKeyboard = faKeyboard;
   faChevronLeft = faChevronLeft;
   faChevronRight = faChevronRight;
+  currentMonth: number = 0;
+  constructor(private resolver: ComponentFactoryResolver) { }
 
-  constructor(private resolver: ComponentFactoryResolver) {}
+  ngOnInit(): void {
+    const calendar = new Calendar();
+    this.currentMonth = calendar.getMonthNumber() + 1;
+    console.log(calendar.weeksInYear(2020));
 
-  ngOnInit(): void {}
+  }
 
   addComponent(comp: any): void {
     if (!this.container) return;
