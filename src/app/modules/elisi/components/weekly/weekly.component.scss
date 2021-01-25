@@ -88,10 +88,15 @@
   }
 }
 
-.progress-bar {
-  background-color: $yellow;
-  height: 1px;
-  width: 100%;
+
+.progress {
   position: absolute;
   top: 54px;
+  height: 1.3px;
+}
+
+.selected-week-progress {
+  background: $green;
+  z-index: 2;
+  width: 20px;
 }
