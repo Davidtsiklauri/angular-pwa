@@ -4,12 +4,12 @@ import {
   ComponentRef,
   OnInit,
   ViewChild,
-  ViewContainerRef
+  ViewContainerRef,
 } from '@angular/core';
 import {
   faChevronLeft,
   faChevronRight,
-  faKeyboard
+  faKeyboard,
 } from '@fortawesome/free-solid-svg-icons';
 import { Calendar } from './../../../../core/utilities/calendar';
 import * as components from './dynamic.components';
@@ -27,14 +27,18 @@ export class WeeklyComponent implements OnInit {
   faKeyboard = faKeyboard;
   faChevronLeft = faChevronLeft;
   faChevronRight = faChevronRight;
-  currentMonth: number = 0;
+  currentProgress: number = 0;
+  selectedWeekProgress: number = 0;
+
   constructor(private resolver: ComponentFactoryResolver) { }
 
   ngOnInit(): void {
-    const calendar = new Calendar();
-    this.currentMonth = calendar.getMonthNumber() + 1;
-    console.log(calendar.weeksInYear(2020));
+    const calendar = new Calendar(),
+      currentWeek = calendar.getNumberOfWeek(),
+      amountOfWeeksInYear = calendar.getAmountOfWeeksInYear()
 
+    this.currentProgress = this.calculateProgressBarProgress(amountOfWeeksInYear, currentWeek);
+    this.selectedWeekProgress = this.calculateProgressBarProgress(amountOfWeeksInYear, currentWeek);
   }
 
   addComponent(comp: any): void {
@@ -55,5 +59,11 @@ export class WeeklyComponent implements OnInit {
     const element: HTMLElement = compRef.location.nativeElement;
     element.classList.add('col', 'p-0');
     this.componentMap.set(`${comp.name}`, compRef);
+  }
+
+  calculateProgressBarProgress(amountOfWeeks: number, selectedWeek: number) {
+    const diff = 100 / amountOfWeeks;
+    const progress = selectedWeek * diff;
+    return progress === 100 ? 98 : progress;
   }
 }

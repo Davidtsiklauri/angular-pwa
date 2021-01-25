@@ -64,7 +64,11 @@ export class Calendar {
         return monthDays;
     }
 
-    getWeekNumber(year: Date) {
+    public getCurrentYear(): number {
+        return new Date().getFullYear();
+    }
+
+    private getWeekNumber(year: Date) {
         const date: any = new Date(year);
         date.setHours(0, 0, 0, 0);
         date.setDate(date.getDate() + 4 - (date.getDay() || 7));
@@ -73,11 +77,26 @@ export class Calendar {
         return weekNo;
     }
 
-    weeksInYear(year: number) {
+    /**
+     * 
+     * @param year 
+     * @returns amount of weeks in year
+     */
+    getAmountOfWeeksInYear(year: number = this.getCurrentYear()) {
         const d = new Date(year, 11, 31);
         const week = this.getWeekNumber(d);
         return week == 1 ? 52 : week;
     }
-
+    /**
+    * 
+    * @param year 
+    * @returns current week number 
+    */
+    getNumberOfWeek(): number {
+        const today: any = new Date();
+        const firstDayOfYear: any = new Date(today.getFullYear(), 0, 1);
+        const pastDaysOfYear = (today - firstDayOfYear) / 86400000;
+        return Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
+    }
 
 }
