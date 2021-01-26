@@ -1,49 +1,50 @@
 <div class="weeky h100 w100  position-relative">
-    <div class="weekly-calendar">
-        <div class="d-flex justify-content-between align-items-center">
-            <div class="d-flex align-items-center cursor-pointer">
-                <h2>{{ calService.weekNumber < 9 ? '0' +calService.weekNumber : calService.weekNumber}} </h2>
-                        <div class="left">
-                            <span>{{calService.monthName}}
-                                {{ calService.weekStartNumber < 9 ? '0' +calService.weekStartNumber :
-                                    calService.weekStartNumber }} - {{ calService.weekEndNumber }}, {{
-                                    calService.yearNumber }} </span>
-                                    <p>WK</p>
-                        </div>
-            </div>
-            <div class="right-side d-flex align-items-center">
-                <fa-icon [icon]='faKeyboard' class="mr-4"></fa-icon>
-                <div class="navigation d-flex align-items-center">
-                    <fa-icon [icon]='faChevronLeft' class="ml-2" (click)='selectPrevWeek()'></fa-icon>
-                    <h4 class="ml-2 cursor-pointer">Today</h4>
-                    <fa-icon [icon]='faChevronRight' class="ml-2" (click)='selectNextWeek()'></fa-icon>
-                </div>
-            </div>
+  <div class="weekly-calendar">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center cursor-pointer">
+        <h2>{{ calService.weekNumber < 9 ? '0' +calService.weekNumber : calService.weekNumber}} </h2>
+        <div class="left">
+          <span>{{calService.monthName}}
+                {{ calService.weekStartNumber < 9 ? '0' +calService.weekStartNumber :
+                   calService.weekStartNumber }} - {{ calService.weekEndNumber }},
+                {{ calService.yearNumber }} 
+            </span>
+          <p>WK</p>
         </div>
-    </div>
-    <div class="progress progress-bar" [ngStyle]='{"width.%": selectedWeekProgress}'
-        [style.background]='currentProgress === selectedWeekProgress ? "#63CC6C" : "#F7C347"'>
-    </div>
-    <div class="progress selected-week-progress" [ngStyle]='{"left.%": currentProgress}'></div>
-    <div class="weekly-filter pt-2 pb-2">
-        <div class="d-flex justify-content-center">
-            <button (click)='addComponent(components.NotesComponent)'
-                [ngClass]='{"active": componentMap.has("NotesComponent")}'>Notes</button>
-            <button (click)='addComponent(components.PlannerComponent)'
-                [ngClass]='{"active": componentMap.has("PlannerComponent")}'>Planner</button>
-            <button (click)='addComponent(components.ListComponent)'
-                [ngClass]='{"active": componentMap.has("ListComponent")}'>Lists</button>
-            <button (click)='addComponent(components.HabitComponent)'
-                [ngClass]='{"active": componentMap.has("HabitComponent")}'>Habits</button>
-            <button (click)='addComponent(components.ExpensesComponent)'
-                [ngClass]='{"active": componentMap.has("ExpensesComponent")}'>Expense</button>
+      </div>
+      <div class="right-side d-flex align-items-center">
+        <fa-icon [icon]='faKeyboard' class="mr-4"></fa-icon>
+        <div class="navigation d-flex align-items-center">
+          <fa-icon [icon]='faChevronLeft' class="ml-2" (click)='selectPrevWeek()'></fa-icon>
+          <h4 class="ml-2 cursor-pointer">Today</h4>
+          <fa-icon [icon]='faChevronRight' class="ml-2" (click)='selectNextWeek()'></fa-icon>
         </div>
+      </div>
     </div>
-    <div class="weekly-body  w100">
-        <div class=" h100 w100">
-            <div class="row h100 w100  m-0">
-                <template #compContainer></template>
-            </div>
-        </div>
+  </div>
+  <div class="progress progress-bar" [ngStyle]='{"width.%": selectedWeekProgress}'
+    [style.background]='currentProgress === selectedWeekProgress ? "#63CC6C" : "#F7C347"'>
+  </div>
+  <div class="progress selected-week-progress" [ngStyle]='{"left.%": currentProgress}'></div>
+  <div class="weekly-filter pt-2 pb-2">
+    <div class="d-flex justify-content-center">
+      <button (click)='addComponent(components.NotesComponent)'
+        [ngClass]='{"active": componentMap.has("NotesComponent")}'>Notes</button>
+      <button (click)='addComponent(components.PlannerComponent)'
+        [ngClass]='{"active": componentMap.has("PlannerComponent")}'>Planner</button>
+      <button (click)='addComponent(components.ListComponent)'
+        [ngClass]='{"active": componentMap.has("ListComponent")}'>Lists</button>
+      <button (click)='addComponent(components.HabitComponent)'
+        [ngClass]='{"active": componentMap.has("HabitComponent")}'>Habits</button>
+      <button (click)='addComponent(components.ExpensesComponent)'
+        [ngClass]='{"active": componentMap.has("ExpensesComponent")}'>Expense</button>
     </div>
+  </div>
+  <div class="weekly-body  w100">
+    <div class=" h100 w100">
+      <div class="row h100 w100  m-0">
+        <template #compContainer></template>
+      </div>
+    </div>
+  </div>
 </div>

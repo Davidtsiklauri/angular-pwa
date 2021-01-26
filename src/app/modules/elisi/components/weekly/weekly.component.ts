@@ -12,7 +12,6 @@ import {
   faChevronRight,
   faKeyboard,
 } from '@fortawesome/free-solid-svg-icons';
-import { Calendar } from './../../../../core/utilities/calendar';
 import * as components from './dynamic.components';
 
 @Component({
@@ -37,10 +36,10 @@ export class WeeklyComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const calendar = new Calendar(),
-      currentWeek = calendar.getCurrentWeek(),
-      amountOfWeeksInYear = calendar.getAmountOfWeeksInYear()
+    const currentWeek = this.calService.weekNumber,
+      amountOfWeeksInYear = this.calService.amountOfWeeksInYear
 
+    //TODO დაპატარავე width 2 პროცენტით როცა width 100 - ია;
     this.currentProgress = this.calculateProgressBarProgress(amountOfWeeksInYear, currentWeek);
     this.selectedWeekProgress = this.calculateProgressBarProgress(amountOfWeeksInYear, currentWeek);
   }
@@ -68,14 +67,24 @@ export class WeeklyComponent implements OnInit {
   calculateProgressBarProgress(amountOfWeeks: number, selectedWeek: number) {
     const diff = 100 / amountOfWeeks;
     const progress = selectedWeek * diff;
-    return progress === 100 ? 98 : progress;
+    return progress;
   }
 
   selectPrevWeek() {
-
+    this.calService.weekNumber = this.calService.weekNumber - 1;
+    this.updateProgress(this.calService.amountOfWeeksInYear, this.calService.weekNumber)
   }
 
+  // TODO this method
   selectNextWeek() {
-
+    if (this.calService.weekNumber === this.calService.amountOfWeeksInYear) {
+      this.calService.yearNumber = this.calService.calendar.getNextYear();
+      return;
+    }
+    this.calService.weekNumber = this.calService.weekNumber + 1;
+    this.updateProgress(this.calService.amountOfWeeksInYear, this.calService.weekNumber)
   }
-}
+
+  updateProgress = (amountOfWeeksInYear: number, currentWeek: number) =>
+    this.selectedWeekProgress = this.calculateProgressBarProgress(amountOfWeeksInYear, currentWeek)
+} 

@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class CalendarService {
-  calendar: Calendar
+  readonly calendar: Calendar
 
-  yearNumber: number;
-  weekNumber: number;
   monthName: string;
 
+  amountOfWeeksInYear: number;
+  yearNumber: number;
+  weekNumber: number;
   weekStartNumber: number;
   weekEndNumber: number;
 
@@ -20,6 +21,7 @@ export class CalendarService {
     this.monthName = this.calendar.months[this.calendar.getCurrentMonth()];
     this.weekStartNumber = this.calculateWeekStartNumber(this.weekNumber * 7).getDate();
     this.weekEndNumber = this.calculateWeekStartNumber((this.weekNumber + 1) * 7).getDate();
+    this.amountOfWeeksInYear = this.calendar.getAmountOfWeeksInYear();
   }
 
   calculateWeekStartNumber(week: number): Date {
