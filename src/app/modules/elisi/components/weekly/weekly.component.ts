@@ -1,3 +1,4 @@
+import { CalendarService } from '../../services/calendar.service';
 import {
   Component,
   ComponentFactoryResolver,
@@ -30,11 +31,14 @@ export class WeeklyComponent implements OnInit {
   currentProgress: number = 0;
   selectedWeekProgress: number = 0;
 
-  constructor(private resolver: ComponentFactoryResolver) { }
+  constructor(
+    private readonly resolver: ComponentFactoryResolver,
+    public readonly calService: CalendarService
+  ) { }
 
   ngOnInit(): void {
     const calendar = new Calendar(),
-      currentWeek = calendar.getNumberOfWeek(),
+      currentWeek = calendar.getCurrentWeek(),
       amountOfWeeksInYear = calendar.getAmountOfWeeksInYear()
 
     this.currentProgress = this.calculateProgressBarProgress(amountOfWeeksInYear, currentWeek);
@@ -65,5 +69,13 @@ export class WeeklyComponent implements OnInit {
     const diff = 100 / amountOfWeeks;
     const progress = selectedWeek * diff;
     return progress === 100 ? 98 : progress;
+  }
+
+  selectPrevWeek() {
+
+  }
+
+  selectNextWeek() {
+
   }
 }

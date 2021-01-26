@@ -1,3 +1,4 @@
+import { CalendarService } from './services/calendar.service';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { CoreModule } from 'src/app/core/core.module';
@@ -37,5 +38,8 @@ import { NavigationComponent } from './navigation/navigation.component';
     CoreModule,
     SharedModule
   ],
+  providers: [
+    CalendarService
+  ]
 })
 export class ElisiModule { }

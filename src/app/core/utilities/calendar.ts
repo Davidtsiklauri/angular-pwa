@@ -1,7 +1,7 @@
 export class Calendar {
 
-    private months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    private days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    public readonly months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    public readonly days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
     public getNextMonth(): number {
         const currentMonth = new Date().getMonth();
@@ -68,6 +68,7 @@ export class Calendar {
         return new Date().getFullYear();
     }
 
+    // @TODO name is confusing 
     private getWeekNumber(year: Date) {
         const date: any = new Date(year);
         date.setHours(0, 0, 0, 0);
@@ -92,11 +93,15 @@ export class Calendar {
     * @param year 
     * @returns current week number 
     */
-    getNumberOfWeek(): number {
+    public getCurrentWeek(): number {
         const today: any = new Date();
         const firstDayOfYear: any = new Date(today.getFullYear(), 0, 1);
         const pastDaysOfYear = (today - firstDayOfYear) / 86400000;
         return Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
+    }
+
+    public getCurrentMonth(): number {
+        return (new Date()).getMonth();
     }
 
 }

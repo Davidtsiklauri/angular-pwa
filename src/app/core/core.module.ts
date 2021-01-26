@@ -18,6 +18,5 @@ const COMPONTENTS: any[] = [
   declarations: [...COMPONTENTS],
   imports: [CommonModule, FontAwesomeModule],
   exports: [...COMPONTENTS, FontAwesomeModule]
-
 })
 export class CoreModule { }
