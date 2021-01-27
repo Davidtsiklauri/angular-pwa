@@ -99,4 +99,9 @@ export class Calendar {
         return (new Date()).getMonth();
     }
 
+    public getCurrentMonthName(): string {
+        return this.months[(new Date()).getMonth()];
+    }
+
+
 }

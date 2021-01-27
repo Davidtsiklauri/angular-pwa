@@ -16,7 +16,7 @@
         <fa-icon [icon]='faKeyboard' class="mr-4"></fa-icon>
         <div class="navigation d-flex align-items-center">
           <fa-icon [icon]='faChevronLeft' class="ml-2" (click)='selectPrevWeek()'></fa-icon>
-          <h4 class="ml-2 cursor-pointer">Today</h4>
+          <h4 class="ml-2 cursor-pointer" (click)='resetProgressBar()'>Today</h4>
           <fa-icon [icon]='faChevronRight' class="ml-2" (click)='selectNextWeek()'></fa-icon>
         </div>
       </div>

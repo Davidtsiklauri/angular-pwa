@@ -71,7 +71,20 @@ export class WeeklyComponent implements OnInit {
   }
 
   selectPrevWeek() {
-    this.calService.weekNumber = this.calService.weekNumber - 1;
+
+    if (this.calService.weekNumber === 1) {
+      this.calService.yearNumber = this.calService.yearNumber - 1;
+      this.calService.amountOfWeeksInYear = this.calService.calendar
+        .getAmountOfWeeksInYear(this.calService.yearNumber);
+      this.calService.weekNumber = this.calService.amountOfWeeksInYear;
+    } else {
+      this.calService.weekNumber = this.calService.weekNumber - 1;
+    }
+    this.updateProgress(this.calService.amountOfWeeksInYear, this.calService.weekNumber)
+    this.calService.updateWeek();
+    const month = this.calService.calculateWeekStartNumber(this.calService.weekNumber * 7);
+    this.calService.monthName = this.calService.calendar.months[month.getMonth()]
+
     this.updateProgress(this.calService.amountOfWeeksInYear, this.calService.weekNumber)
   }
 
@@ -82,15 +95,23 @@ export class WeeklyComponent implements OnInit {
       this.calService.weekNumber = 1;
       this.calService.amountOfWeeksInYear = this.calService.calendar
         .getAmountOfWeeksInYear(this.calService.yearNumber);
-      return;
     }
-    this.calService.weekNumber = this.calService.weekNumber + 1;
+    else {
+      this.calService.weekNumber = this.calService.weekNumber + 1;
+    }
     this.updateProgress(this.calService.amountOfWeeksInYear, this.calService.weekNumber)
     this.calService.updateWeek();
-    const month = this.calService.calculateWeekStartNumber(this.calService.weekNumber);
-    console.log(month);
+    const month = this.calService.calculateWeekStartNumber(this.calService.weekNumber * 7);
 
     this.calService.monthName = this.calService.calendar.months[month.getMonth()]
+  }
+
+  resetProgressBar() {
+    this.calService.yearNumber = this.calService.calendar.getCurrentYear();
+    this.calService.weekNumber = this.calService.calendar.getCurrentWeek();
+    this.calService.monthName = this.calService.calendar.getCurrentMonthName();
+    this.calService.updateWeek();
+    this.updateProgress(this.calService.amountOfWeeksInYear, this.calService.weekNumber)
   }
 
   updateProgress = (amountOfWeeksInYear: number, currentWeek: number) =>
