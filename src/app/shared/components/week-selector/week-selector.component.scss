@@ -1,7 +1,11 @@
 @import 'src/variables';
 
 .week-selector {
+  margin: 0 -26px;
+
   .week-selector-header {
+    padding: 0 15px;
+
     h5 {
       font-size: 16px;
       color: $white;
@@ -10,17 +14,68 @@
       cursor: pointer;
     }
 
-    p {
-      font-size: 14px;
-      color: $green;
+    .set-today {
+      color: $green !important;
       text-align: end;
       cursor: pointer;
     }
 
     div,
-    p,
     h5 {
       flex-basis: 100%;
+    }
+  }
+
+  .week-selector-body {
+    text-align: center;
+    border-top: 1px solid $slate-grey;
+    border-bottom: 1px solid $slate-grey;
+    padding: 3px 15px;
+    overflow-y: hidden;
+    cursor: pointer;
+
+    .week {
+      padding: 5px 0;
+      line-height: 1.1;
+      min-width: 42px;
+
+      &:not(:first-child) {
+        padding-left: 20px;
+        min-width: 62px;
+      }
+
+      &.active {
+        position: relative;
+
+        p,
+        span {
+          color: $green;
+        }
+
+        &::after {
+          content: '';
+          display: block;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          position: absolute;
+          background: $green;
+          bottom: -8px;
+          left: 35px;
+        }
+      }
+    }
+
+    p,
+    span {
+      color: $white;
+      margin: 0;
+      display: block;
+    }
+
+    p {
+      font-weight: bolder;
+      font-size: 17px;
     }
   }
 }
