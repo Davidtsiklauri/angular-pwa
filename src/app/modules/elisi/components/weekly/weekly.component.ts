@@ -1,3 +1,5 @@
+import { WeekSelectorComponent } from './../../../../shared/components/week-selector/week-selector.component';
+import { ModalService } from './../../../../core/services/modal.service';
 import { CalendarService } from '../../services/calendar.service';
 import {
   Component,
@@ -32,7 +34,8 @@ export class WeeklyComponent implements OnInit {
 
   constructor(
     private readonly resolver: ComponentFactoryResolver,
-    public readonly calService: CalendarService
+    public readonly calService: CalendarService,
+    private readonly ModalService: ModalService
   ) { }
 
   ngOnInit(): void {
@@ -71,24 +74,21 @@ export class WeeklyComponent implements OnInit {
   }
 
   selectPrevWeek() {
-
     if (this.calService.weekNumber === 1) {
       this.calService.yearNumber = this.calService.yearNumber - 1;
-      this.calService.amountOfWeeksInYear = this.calService.calendar
-        .getAmountOfWeeksInYear(this.calService.yearNumber);
-      this.calService.weekNumber = this.calService.amountOfWeeksInYear;
-    } else {
+      this.calService.amountOfWeeksInYear = this.calService.calendar.getAmountOfWeeksInYear(this.calService.yearNumber);
+      this.calService.weekNumber = this.calService.calendar.getAmountOfWeeksInYear(this.calService.yearNumber);
+    }
+    else {
       this.calService.weekNumber = this.calService.weekNumber - 1;
     }
-    this.updateProgress(this.calService.amountOfWeeksInYear, this.calService.weekNumber)
-    this.calService.updateWeek();
-    const month = this.calService.calculateWeekStartNumber(this.calService.weekNumber * 7);
+    this.calService.updateWeek(this.calService.weekNumber - 1);
+    this.updateProgress(this.calService.amountOfWeeksInYear, this.calService.weekNumber);
+    const month = this.calService.calculateWeekStartNumber((this.calService.weekNumber - 1) * 7);
     this.calService.monthName = this.calService.calendar.months[month.getMonth()]
 
-    this.updateProgress(this.calService.amountOfWeeksInYear, this.calService.weekNumber)
   }
 
-  // TODO this method
   selectNextWeek() {
     if (this.calService.weekNumber === this.calService.amountOfWeeksInYear) {
       this.calService.yearNumber = this.calService.yearNumber + 1;
@@ -116,4 +116,10 @@ export class WeeklyComponent implements OnInit {
 
   updateProgress = (amountOfWeeksInYear: number, currentWeek: number) =>
     this.selectedWeekProgress = this.calculateProgressBarProgress(amountOfWeeksInYear, currentWeek)
+
+
+  openModal() {
+    this.ModalService
+      .openModal(WeekSelectorComponent)
+  }
 } 

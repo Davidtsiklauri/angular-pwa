@@ -1,0 +1,26 @@
+@import 'src/variables';
+
+.week-selector {
+  .week-selector-header {
+    h5 {
+      font-size: 16px;
+      color: $white;
+      flex-basis: 100%;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    p {
+      font-size: 14px;
+      color: $green;
+      text-align: end;
+      cursor: pointer;
+    }
+
+    div,
+    p,
+    h5 {
+      flex-basis: 100%;
+    }
+  }
+}

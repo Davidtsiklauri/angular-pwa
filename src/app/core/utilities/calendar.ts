@@ -89,11 +89,14 @@ export class Calendar {
     * @returns current week number 
     */
     public getCurrentWeek(): number {
-        const today: any = new Date();
-        const firstDayOfYear: any = new Date(today.getFullYear(), 0, 1);
-        const pastDaysOfYear = (today - firstDayOfYear) / 86400000;
-        return Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
+        const now: any = new Date();
+        const d = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()));
+        const dayNum = d.getUTCDay() || 7;
+        d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+        const yearStart: any = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+        return Math.ceil((((now - yearStart) / 86400000) + 1) / 7)
     }
+
 
     public getCurrentMonth(): number {
         return (new Date()).getMonth();

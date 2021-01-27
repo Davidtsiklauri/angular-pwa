@@ -6,7 +6,6 @@ export class CalendarService {
   readonly calendar: Calendar
 
   monthName: string;
-
   amountOfWeeksInYear: number;
   yearNumber: number;
   weekNumber: number;
@@ -22,17 +21,21 @@ export class CalendarService {
     this.weekStartNumber = this.calculateWeekStartNumber(this.weekNumber * 7).getDate();
     this.weekEndNumber = this.calculateWeekStartNumber((this.weekNumber + 1) * 7).getDate();
     this.amountOfWeeksInYear = this.calendar.getAmountOfWeeksInYear();
+
   }
 
   calculateWeekStartNumber(week: number): Date {
     const date = new Date();
     date.setDate(week)
+    date.setFullYear(this.yearNumber)
     return date;
   }
 
-  updateWeek(): void {
-    this.weekStartNumber = this.calculateWeekStartNumber(this.weekNumber * 7).getDate();
-    this.weekEndNumber = this.calculateWeekStartNumber((this.weekNumber + 1) * 7).getDate();
+  updateWeek(week: number = this.weekNumber): void {
+    console.log(week);
+
+    this.weekStartNumber = this.calculateWeekStartNumber(week * 7).getDate();
+    this.weekEndNumber = this.calculateWeekStartNumber((week + 1) * 7).getDate();
   }
 
 }

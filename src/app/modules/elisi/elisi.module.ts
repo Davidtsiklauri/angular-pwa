@@ -15,6 +15,7 @@ import { ElisiComponent } from './elisi.component';
 import { AddWorkSpaceModalComponent } from './navigation/components/add-work-space-modal/add-work-space-modal.component';
 import { WorkSpaceModalComponent } from './navigation/components/work-space-modal/work-space-modal.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { BeatifyCalPipe } from './pipes/beatify-cal.pipe';
 
 
 
@@ -30,7 +31,8 @@ import { NavigationComponent } from './navigation/navigation.component';
     HabitComponent,
     HabitModalComponent,
     WorkSpaceModalComponent,
-    AddWorkSpaceModalComponent
+    AddWorkSpaceModalComponent,
+    BeatifyCalPipe
   ],
   imports: [
     CommonModule,
