@@ -8,11 +8,6 @@ export class Calendar {
         return (currentMonth + 1) % 12;
     }
 
-    public getNextYear(): number {
-        const currentYear = new Date().getFullYear(),
-            currentMonth = this.getNextMonth();
-        return (currentMonth === 11) ? currentYear + 1 : currentYear;;
-    }
 
     public getMonthNumber(): number {
         const currentMonth = new Date().getMonth();

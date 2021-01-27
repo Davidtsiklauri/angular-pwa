@@ -30,4 +30,9 @@ export class CalendarService {
     return date;
   }
 
+  updateWeek(): void {
+    this.weekStartNumber = this.calculateWeekStartNumber(this.weekNumber * 7).getDate();
+    this.weekEndNumber = this.calculateWeekStartNumber((this.weekNumber + 1) * 7).getDate();
+  }
+
 }

@@ -78,11 +78,19 @@ export class WeeklyComponent implements OnInit {
   // TODO this method
   selectNextWeek() {
     if (this.calService.weekNumber === this.calService.amountOfWeeksInYear) {
-      this.calService.yearNumber = this.calService.calendar.getNextYear();
+      this.calService.yearNumber = this.calService.yearNumber + 1;
+      this.calService.weekNumber = 1;
+      this.calService.amountOfWeeksInYear = this.calService.calendar
+        .getAmountOfWeeksInYear(this.calService.yearNumber);
       return;
     }
     this.calService.weekNumber = this.calService.weekNumber + 1;
     this.updateProgress(this.calService.amountOfWeeksInYear, this.calService.weekNumber)
+    this.calService.updateWeek();
+    const month = this.calService.calculateWeekStartNumber(this.calService.weekNumber);
+    console.log(month);
+
+    this.calService.monthName = this.calService.calendar.months[month.getMonth()]
   }
 
   updateProgress = (amountOfWeeksInYear: number, currentWeek: number) =>
