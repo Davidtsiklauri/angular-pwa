@@ -30,19 +30,21 @@
     text-align: center;
     border-top: 1px solid $slate-grey;
     border-bottom: 1px solid $slate-grey;
-    padding: 3px 15px;
+    padding: 3px 0;
     overflow-y: hidden;
     cursor: pointer;
+
+    .slider {
+      position: relative;
+      transition: .5s ease-in;
+    }
 
     .week {
       padding: 5px 0;
       line-height: 1.1;
-      min-width: 42px;
+      min-width: 60px;
+      padding-left: 20px;
 
-      &:not(:first-child) {
-        padding-left: 20px;
-        min-width: 62px;
-      }
 
       &.active {
         position: relative;

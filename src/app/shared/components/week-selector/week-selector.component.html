@@ -6,13 +6,15 @@
             <h5 class="set-today">set to today</h5>
         </div>
     </div>
-    <div class="week-selector-body d-flex">
-        <div class="week" 
-            *ngFor="let item of weeks; let i = index" [ngClass]='{"active": i === 3}' 
-            (click)='slide(i)'>
-            <span>WK</span>
-            <p>28</p>
-            <span>23-4</span>
+    <div class="week-selector-body">
+        <div class="slider d-flex" [ngStyle]='{"left.px": leftPosition }'>
+            <div class="week" 
+                *ngFor="let item of weeks; let i = index" [ngClass]='{"active": i === 3}' 
+                (click)='slide(i,$event)'>
+                <span>WK</span>
+                <p>28</p>
+                <span>23-4</span>
+            </div>
         </div>
     </div>
 </div>
