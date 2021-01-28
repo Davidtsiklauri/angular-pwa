@@ -63,7 +63,7 @@ export class Calendar {
         return new Date().getFullYear();
     }
 
-    // @TODO name is confusing 
+    // TODO name is confusing 
     private getWeekNumber(year: Date) {
         const date: any = new Date(year);
         date.setHours(0, 0, 0, 0);
@@ -102,8 +102,8 @@ export class Calendar {
         return (new Date()).getMonth();
     }
 
-    public getCurrentMonthName(): string {
-        return this.months[(new Date()).getMonth()];
+    public getMonthName(month: number = (new Date()).getMonth()): string {
+        return this.months[month];
     }
 
 

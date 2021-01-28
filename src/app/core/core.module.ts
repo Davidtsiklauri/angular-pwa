@@ -9,7 +9,7 @@ import { ModalComponent } from './components/modal/modal.component';
 const COMPONTENTS: any[] = [
   ButtonComponent,
   CheckboxComponent,
-  ModalComponent
+  ModalComponent,
 ];
 
 

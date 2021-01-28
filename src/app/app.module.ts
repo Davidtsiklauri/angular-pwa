@@ -7,6 +7,7 @@ import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+import { StoreModule } from '@ngrx/store';
 
 
 
@@ -28,6 +29,7 @@ export class ModalData {
       enabled: environment.production,
     }),
     FontAwesomeModule,
+    StoreModule.forRoot({}, {}),
   ],
   bootstrap: [AppComponent],
   providers: [

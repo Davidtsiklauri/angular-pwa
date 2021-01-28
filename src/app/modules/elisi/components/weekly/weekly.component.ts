@@ -84,7 +84,7 @@ export class WeeklyComponent implements OnInit {
     }
     this.calService.updateWeek(this.calService.weekNumber - 1);
     this.updateProgress(this.calService.amountOfWeeksInYear, this.calService.weekNumber);
-    const month = this.calService.calculateWeekStartNumber((this.calService.weekNumber - 1) * 7);
+    const month = this.calService.getDateByWeek((this.calService.weekNumber - 1) * 7);
     this.calService.monthName = this.calService.calendar.months[month.getMonth()]
 
   }
@@ -101,7 +101,7 @@ export class WeeklyComponent implements OnInit {
     }
     this.updateProgress(this.calService.amountOfWeeksInYear, this.calService.weekNumber)
     this.calService.updateWeek();
-    const month = this.calService.calculateWeekStartNumber(this.calService.weekNumber * 7);
+    const month = this.calService.getDateByWeek(this.calService.weekNumber * 7);
 
     this.calService.monthName = this.calService.calendar.months[month.getMonth()]
   }
@@ -109,7 +109,7 @@ export class WeeklyComponent implements OnInit {
   resetProgressBar() {
     this.calService.yearNumber = this.calService.calendar.getCurrentYear();
     this.calService.weekNumber = this.calService.calendar.getCurrentWeek();
-    this.calService.monthName = this.calService.calendar.getCurrentMonthName();
+    this.calService.monthName = this.calService.calendar.getMonthName();
     this.calService.updateWeek();
     this.updateProgress(this.calService.amountOfWeeksInYear, this.calService.weekNumber)
   }
