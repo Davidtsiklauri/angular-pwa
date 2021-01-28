@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ButtonComponent } from './components/button/button.component';
 import { CheckboxComponent } from './components/checkbox/checkbox.component';
@@ -16,7 +17,13 @@ const COMPONTENTS: any[] = [
 
 @NgModule({
   declarations: [...COMPONTENTS],
-  imports: [CommonModule, FontAwesomeModule],
-  exports: [...COMPONTENTS, FontAwesomeModule]
+  imports: [CommonModule,
+    FontAwesomeModule,
+    ReactiveFormsModule
+  ],
+  exports: [...COMPONTENTS,
+    FontAwesomeModule,
+    ReactiveFormsModule
+  ]
 })
 export class CoreModule { }

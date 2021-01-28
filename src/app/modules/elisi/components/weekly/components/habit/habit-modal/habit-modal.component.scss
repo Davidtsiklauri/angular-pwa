@@ -9,6 +9,13 @@
 
 .modal-body {
 
+  span {
+    color: $dark-grey;
+    font-size: 12px;
+    text-align: center;
+    display: block;
+    font-weight: 600;
+  }
 
   label {
     color: $white;
