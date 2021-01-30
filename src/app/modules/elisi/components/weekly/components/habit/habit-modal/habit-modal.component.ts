@@ -45,6 +45,7 @@ export class HabitModalComponent implements OnInit {
 
   save() {
     console.log(this.habitForm.valid);
+    this.habitForm.markAllAsTouched();
   }
 
 }

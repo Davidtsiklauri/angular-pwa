@@ -37,18 +37,14 @@
 
 
 .invalid {
+  position: relative;
   border-bottom: 1px solid red !important;
-  animation: error .5s ease-in;
-
+  animation: error .2s ease-in;
 }
 
 @keyframes error {
   0% {
-    width: 0%;
-  }
-
-  25% {
-    width: 25%;
+    width: 50%;
   }
 
   50% {
