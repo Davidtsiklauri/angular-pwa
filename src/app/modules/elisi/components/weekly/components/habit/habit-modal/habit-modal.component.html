@@ -18,26 +18,40 @@
             </div>
             <div class="form-group d-flex justify-content-between">
                 <label for="">Tracker type:</label>
-                <select name="" id="">
-                    <option value="" selected>Habit</option>
-                    <option value="" selected>Water</option>
+                <select name="" id="" formControlName='trackerType'>
+                    <option value="habit">Habit</option>
+                    <option value="water">Water</option>
                 </select>
             </div>
-            <div class="form-group d-flex justify-content-between">
-                <div class="custom-item" *ngFor="let week of weeksArray.controls; let i = index" 
-                     formArrayName="weeks">
-                    <ng-container [formGroupName]='i'>
-                        <input type="checkbox" [id]="week.value.id" [value]="week.value.id" 
-                            [checked]='week.value.isSelected' formControlName='isSelected'>
-                        <label [for]="week.value.id">{{ week.value.name }}</label>
-                    </ng-container>
-                </div>
+
+            <div class="form-group d-flex justify-content-between" *ngIf="habitCtrls.trackerType.value === 'water'">
+                <label for="">How many glasses each day:</label>
+                <select name="" id="" formControlName='glassesCount'>
+                    <option value="no_workspace">0</option>
+                    <option value="water" *ngFor='let glass of glassesCount; let i = index' [value]='i + 1'>
+                        {{i + 1}}
+                    </option>
+                </select>
             </div>
+            <ng-container *ngIf="habitCtrls.trackerType.value !== 'water'">
+                <label for="">on days: </label>
+                <div class="form-group d-flex justify-content-between" >
+                    <div class="custom-item" *ngFor="let week of weeksArray.controls; let i = index" 
+                         formArrayName="weeks">
+                        <ng-container [formGroupName]='i'>
+                            <input type="checkbox" [id]="week.value.id" [value]="week.value.id" 
+                                [checked]='week.value.isSelected' formControlName='isSelected'>
+                            <label [for]="week.value.id">{{ week.value.name }}</label>
+                        </ng-container>
+                    </div>
+                </div>
+            </ng-container>
+
             <div class="form-group">
                 <label for="">Set a workspace</label>
             </div>
             <div class="form-group">
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between" *ngIf="habitCtrls.trackerType.value !== 'water'">
                     <label for="">Show in Planner</label>
                     <app-checkbox formControlName='showInPlanner'></app-checkbox>
                 </div>

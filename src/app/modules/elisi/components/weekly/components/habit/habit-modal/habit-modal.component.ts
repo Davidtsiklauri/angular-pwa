@@ -11,6 +11,7 @@ export class HabitModalComponent implements OnInit {
 
   habitForm: FormGroup;
   weeks = weeks;
+  glassesCount: any[] = new Array(15).fill(null);
 
   constructor(
     private fb: FormBuilder
@@ -20,7 +21,8 @@ export class HabitModalComponent implements OnInit {
       trackerType: ['habit', Validators.required],
       weeks: fb.array([]),
       workSpace: [''],
-      showInPlanner: [false]
+      showInPlanner: [false],
+      glassesCount: ['no_workspace']
     })
   }
 
@@ -44,7 +46,7 @@ export class HabitModalComponent implements OnInit {
   }
 
   save() {
-    console.log(this.habitForm.valid);
+    console.log(this.habitForm.value);
     this.habitForm.markAllAsTouched();
   }
 
