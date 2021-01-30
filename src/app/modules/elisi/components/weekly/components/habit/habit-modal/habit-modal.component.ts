@@ -41,8 +41,10 @@ export class HabitModalComponent implements OnInit {
   }
   ngOnInit(): void {
     this.weeks.forEach((week) => this.weeksArray.push(this.weekGroup(week.value, week.key)))
-    console.log(this.weeksArray);
+  }
 
+  save() {
+    console.log(this.habitForm.valid);
   }
 
 }

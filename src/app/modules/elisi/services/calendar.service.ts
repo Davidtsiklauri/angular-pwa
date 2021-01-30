@@ -23,7 +23,6 @@ export class CalendarService {
     this.weekStartNumber = this.getDateByWeek(this.weekNumber * 7).getDate();
     this.weekEndNumber = this.getDateByWeek((this.weekNumber + 1) * 7).getDate();
     this.amountOfWeeksInYear = this.calendar.getAmountOfWeeksInYear();
-
   }
 
   getDateByWeek(week: number): Date {

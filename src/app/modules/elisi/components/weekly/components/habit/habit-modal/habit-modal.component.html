@@ -12,11 +12,10 @@
         </div>
         <div class="modal-body">
             <div class="form-group">
-                <input type="text" placeholder="habit name" class="w100" autofocus formControlName='habitName'>
+                <input type="text" 
+                       placeholder="habit name" class="w100" 
+                       autofocus formControlName='habitName' appValidate>
             </div>
-            <label for="">
-                {{habitForm.value | json}}
-            </label>
             <div class="form-group d-flex justify-content-between">
                 <label for="">Tracker type:</label>
                 <select name="" id="">
@@ -44,7 +43,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <app-button>Save</app-button>
+                <app-button (click)='save()'>Save</app-button>
             </div>
             <div class="form-group">
                 <span>Elisi Tip: Keep habits small and achievable. A start is one hundred times better than not doing at
@@ -52,6 +51,4 @@
             </div>
         </div>
     </div>
-    <label for="">
-    </label>
 </form>
