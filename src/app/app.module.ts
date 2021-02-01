@@ -9,13 +9,6 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { StoreModule } from '@ngrx/store';
 
-
-
-export class ModalData {
-  data: any;
-}
-
-
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -32,8 +25,5 @@ export class ModalData {
     StoreModule.forRoot({}, {}),
   ],
   bootstrap: [AppComponent],
-  providers: [
-    { provide: 'ModalData', useClass: ModalData }
-  ]
 })
-export class AppModule { }
+export class AppModule {}

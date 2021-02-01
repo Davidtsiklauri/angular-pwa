@@ -5,43 +5,39 @@ import {
   EmbeddedViewRef,
   Inject,
   Injectable,
-  Injector
+  Injector,
 } from '@angular/core';
 import { AsyncSubject, Subject, throwError } from 'rxjs';
-import { ModalData } from 'src/app/app.module';
 import { ModalComponent } from '../components/modal/modal.component';
 
 export interface IModalData<T> {
   modalConfig?: {
-    width: 'lg' | 'sm'
-  },
-  data?: T
+    width: 'lg' | 'sm ';
+  };
+  data?: T;
 }
 
-@Injectable({ 'providedIn': 'root' })
-
+@Injectable({ providedIn: 'root' })
 export class ModalService {
-
   modalRef: ComponentRef<ModalComponent> | null = null;
   data$: AsyncSubject<any> = new AsyncSubject();
+  data: any;
 
   constructor(
     private componentFactoryResolver: ComponentFactoryResolver,
     private appRef: ApplicationRef,
-    private injector: Injector,
-    @Inject('ModalData') private modalData: ModalData,
-  ) { }
+    private injector: Injector // @Inject('ModalData') private modalData: ModalData,
+  ) {}
 
   openModal(cmp: any, modalData: IModalData<any> | null = null): Subject<any> {
     if (!cmp) {
       throwError('component is not provided`');
     }
 
-    this.modalData.data = modalData;
+    this.data = modalData;
     this.modalRef = this.componentFactoryResolver
       .resolveComponentFactory(ModalComponent)
       .create(this.injector);
-
 
     this.modalRef.instance.component = cmp;
 
@@ -53,7 +49,6 @@ export class ModalService {
     return this.data$;
   }
 
-
   closeModal(data?: any) {
     if (this.modalRef) {
       this.appRef.detachView(this.modalRef.hostView);
@@ -62,5 +57,7 @@ export class ModalService {
     }
   }
 
-
+  getData() {
+    return this.data;
+  }
 }

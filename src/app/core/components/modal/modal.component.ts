@@ -1,41 +1,41 @@
+import { MODALDATA } from './../../services/modal-data.token';
 import {
-  AfterViewInit, Component,
+  AfterViewInit,
+  Component,
   ComponentFactoryResolver,
   Inject,
   OnInit,
-  ViewChild, ViewContainerRef
+  ViewChild,
+  ViewContainerRef,
 } from '@angular/core';
-import { ModalData } from 'src/app/app.module';
-
+import { DaTaToken } from '../../core.module';
 
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.scss']
+  styleUrls: ['./modal.component.scss'],
 })
 export class ModalComponent implements AfterViewInit, OnInit {
-
-  @ViewChild("modalContainer", { read: ViewContainerRef }) container: ViewContainerRef | undefined;
+  @ViewChild('modalContainer', { read: ViewContainerRef })
+  container: ViewContainerRef | undefined;
   component: any;
   width: 'lg' | 'sm' | 'md' = 'md';
 
   constructor(
     private resolver: ComponentFactoryResolver,
-    @Inject('ModalData') private modalData: ModalData,
-
-  ) { }
+    @Inject(DaTaToken) private data: any
+  ) {}
   ngOnInit(): void {
-    const width: 'lg' | 'sm' = this.modalData.data?.modalConfig?.width;
-    if (width) {
-      this.width = width;
-    }
-
+    console.log(this.data);
+    // const width: 'lg' | 'sm' = this.modalData.data?.modalConfig?.width;
+    // if (width) {
+    //   this.width = width;
+    // }
   }
 
   ngAfterViewInit(): void {
-    setTimeout((() => this.initModalComponent()), 0);
+    setTimeout(() => this.initModalComponent(), 0);
   }
-
 
   initModalComponent() {
     if (this.container) {
@@ -44,6 +44,4 @@ export class ModalComponent implements AfterViewInit, OnInit {
       this.container.createComponent(factory);
     }
   }
-
-
 }

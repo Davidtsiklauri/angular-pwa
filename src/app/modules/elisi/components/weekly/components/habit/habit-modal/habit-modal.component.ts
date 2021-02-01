@@ -5,29 +5,29 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-habit-modal',
   templateUrl: './habit-modal.component.html',
-  styleUrls: ['./habit-modal.component.scss']
+  styleUrls: ['./habit-modal.component.scss'],
 })
 export class HabitModalComponent implements OnInit {
-
   habitForm: FormGroup;
   weeks = weeks;
   glassesCount: any[] = new Array(15).fill(null);
 
-  constructor(
-    private fb: FormBuilder
-  ) {
+  constructor(private fb: FormBuilder) {
     this.habitForm = fb.group({
-      habitName: ['', Validators.compose([Validators.required, Validators.maxLength(10)])],
+      habitName: [
+        '',
+        Validators.compose([Validators.required, Validators.maxLength(10)]),
+      ],
       trackerType: ['habit', Validators.required],
       weeks: fb.array([]),
       workSpace: [''],
       showInPlanner: [false],
-      glassesCount: ['no_workspace']
-    })
+      glassesCount: ['no_workspace'],
+    });
   }
 
   get habitCtrls() {
-    return this.habitForm.controls
+    return this.habitForm.controls;
   }
 
   get weeksArray(): FormArray {
@@ -38,16 +38,16 @@ export class HabitModalComponent implements OnInit {
     return this.fb.group({
       name: [name],
       id: [id],
-      isSelected: [false]
-    })
+      isSelected: [false],
+    });
   }
   ngOnInit(): void {
-    this.weeks.forEach((week) => this.weeksArray.push(this.weekGroup(week.value, week.key)))
+    this.weeks.forEach((week) =>
+      this.weeksArray.push(this.weekGroup(week.value, week.key))
+    );
   }
 
   save() {
-    console.log(this.habitForm.value);
     this.habitForm.markAllAsTouched();
   }
-
 }
