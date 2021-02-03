@@ -27,10 +27,10 @@ export class ModalComponent implements AfterViewInit, OnInit {
   ) {}
   ngOnInit(): void {
     console.log(this.data);
-    // const width: 'lg' | 'sm' = this.modalData.data?.modalConfig?.width;
-    // if (width) {
-    //   this.width = width;
-    // }
+    const width: 'lg' | 'sm' = this.data.data?.modalConfig?.width;
+    if (width) {
+      this.width = width;
+    }
   }
 
   ngAfterViewInit(): void {

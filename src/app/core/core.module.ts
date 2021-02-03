@@ -16,7 +16,7 @@ const COMPONTENTS: any[] = [
   ValidateDirective,
 ];
 
-export const DaTaToken = new InjectionToken('token');
+export const DaTaToken = new InjectionToken('DaTaToken');
 
 @NgModule({
   declarations: [...COMPONTENTS],
