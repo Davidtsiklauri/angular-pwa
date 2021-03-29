@@ -15,7 +15,7 @@ import { DaTaToken } from '../../core.module';
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss'],
 })
-export class ModalComponent implements AfterViewInit, OnInit {
+export class ModalComponent implements OnInit {
   @ViewChild('modalContainer', { read: ViewContainerRef })
   container: ViewContainerRef | undefined;
   component: any;
@@ -33,15 +33,15 @@ export class ModalComponent implements AfterViewInit, OnInit {
     }
   }
 
-  ngAfterViewInit(): void {
-    setTimeout(() => this.initModalComponent(), 0);
-  }
+  // ngAfterViewInit(): void {
+  //   setTimeout(() => this.initModalComponent(), 0);
+  // }
 
-  initModalComponent() {
-    if (this.container) {
-      this.container.clear();
-      const factory = this.resolver.resolveComponentFactory(this.component);
-      this.container.createComponent(factory);
-    }
-  }
+  // initModalComponent() {
+  //   if (this.container) {
+  //     this.container.clear();
+  //     const factory = this.resolver.resolveComponentFactory(this.component);
+  //     this.container.createComponent(factory);
+  //   }
+  // }
 }

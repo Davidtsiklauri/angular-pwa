@@ -26,7 +26,7 @@ export class ModalService {
   constructor(
     private componentFactoryResolver: ComponentFactoryResolver,
     private appRef: ApplicationRef,
-    private injector: Injector // @Inject('ModalData') private modalData: ModalData,
+    private injector: Injector
   ) {}
 
   openModal(cmp: any, modalData: IModalData<any> | null = null): Subject<any> {
