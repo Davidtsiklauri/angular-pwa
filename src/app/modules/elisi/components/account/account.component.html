@@ -1,1 +1,9 @@
-<p>account works!</p>
+
+<ng-container *ngIf="node.children">
+    <ng-container *ngFor='let n of node.children'>
+        <div class="box">
+            <app-account [node]='n'></app-account>
+            <app-achievement [item]='item' *ngFor="let item of n.data"></app-achievement>
+        </div>
+    </ng-container>
+</ng-container>
